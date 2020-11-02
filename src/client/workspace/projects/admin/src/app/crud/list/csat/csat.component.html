@@ -1,0 +1,31 @@
+<h3>List Csat</h3>
+
+<lib-paginator
+  [currentpage]="currentpage"
+  [pageCount]="pageCount"
+  (currentpageChange)="gotopage($event)"
+></lib-paginator>
+
+<table class="striped numbered">
+  <tr>
+    <th></th>
+    <th>updated</th>
+    <th>agent</th>
+    <th>contact</th>
+    <th>rating</th>
+    <th>details</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let item of list; trackBy: trackByFn">
+    <td></td>
+    <td>{{ item.updated | datetime }}</td>
+    <td>{{ item.agent }}</td>
+    <td>{{ item.contact }}</td>
+    <td>{{ item.rating }}</td>
+    <td>{{ item.details }}</td>
+    <td>
+      <!-- <a [routerLink]="['../..', 'edit', modelname, item.id]">Edit</a> -->
+      <button (click)="remove(item.id)">Remove</button>
+    </td>
+  </tr>
+</table>

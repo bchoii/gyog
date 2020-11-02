@@ -1,0 +1,26 @@
+<app-camera [(url)]="item.imageurl"></app-camera>
+
+<div class="form">
+  <div>
+    <div>Name</div>
+    <input [(ngModel)]="item.name" />
+  </div>
+  <div>
+    <div>Description</div>
+    <textarea [(ngModel)]="item.description"></textarea>
+  </div>
+  <div>
+    <div>Category</div>
+    <select [(ngModel)]="item.category">
+      <option [ngValue]="item.category">{{ item.category?.name }}</option>
+      <option [ngValue]="null"></option>
+      <option *ngFor="let c of categories" [ngValue]="c">{{ c.name }}</option>
+    </select>
+  </div>
+  <div>
+    <div>Action</div>
+    <button (click)="create(item)">Confirm</button>
+  </div>
+</div>
+
+<pre>{{ item | json }}</pre>

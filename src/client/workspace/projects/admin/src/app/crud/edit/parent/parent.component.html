@@ -1,0 +1,53 @@
+<h3>Edit Parent</h3>
+
+<div>
+  <button (click)="save(item)">Save</button>
+  <button (click)="back()">Back</button>
+</div>
+
+<hr />
+
+<div class="form">
+  <div>
+    <div>id</div>
+    <div>{{ item.id }}</div>
+  </div>
+  <div>
+    <div>created</div>
+    <div>{{ item.created | datetime }}</div>
+  </div>
+  <div>
+    <div>updated</div>
+    <div>{{ item.updated | datetime }}</div>
+  </div>
+  <div>
+    <div>version</div>
+    <div>{{ item.version }}</div>
+  </div>
+  <div>
+    <div>active</div>
+    <div><input [(ngModel)]="item.active" type="checkbox" /></div>
+  </div>
+  <div>
+    <div>sort</div>
+    <input [(ngModel)]="item.sort" type="number" />
+  </div>
+  <div>
+    <div>code</div>
+    <input [(ngModel)]="item.code" />
+  </div>
+  <div>
+    <div>name</div>
+    <input [(ngModel)]="item.name" />
+  </div>
+</div>
+
+<div>Children</div>
+
+<ol>
+  <li *ngFor="let child of item.children">
+    {{ child.name }} <a [routerLink]="['/edit/child', child.id]">Edit</a>
+  </li>
+</ol>
+
+<!-- <pre>{{ item | json }}</pre> -->

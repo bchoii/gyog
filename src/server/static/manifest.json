@@ -1,0 +1,18 @@
+{
+  "short_name": "Webapp",
+  "name": "Webapp",
+  "description": "Webapp",
+  "display": "minimal-ui",
+  "orientation": "portrait",
+  "scope": "./",
+  "start_url": "./?source=pwa",
+  "background_color": "#7092BE",
+  "theme_color": "#7092BE",
+  "icons": [
+    {
+      "src": "/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}

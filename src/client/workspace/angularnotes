@@ -1,0 +1,29 @@
+npm install -g typescript@latest
+
+
+https://angular.io/guide/setup-local
+
+npm install -g @angular/cli
+ng update @angular/cli @angular/core
+ng new [client-name] --routing
+ng generate application [project-name] --strict
+
+https://angular.io/guide/file-structure
+ng new workspace --createApplication="false"
+cd workspace
+ng config schematics.@schematics/angular.component.changeDetection OnPush
+ng generate library lib
+ng generate application agent --routing=true --style=css
+ng generate application gyog --routing=true --style=css
+ng generate application display --routing=true --style=css
+ng generate application kiosk --routing=true --style=css
+ng generate application mobile --routing=true --style=css
+ng generate application admin --routing=true --style=css
+ng generate application appointment --routing=true --style=css
+ng generate application csat --routing=true --style=css
+ng serve --project="agent"
+ng build --prod --project="agent"
+
+
+pwa
+ng add @angular/pwa --project gyog

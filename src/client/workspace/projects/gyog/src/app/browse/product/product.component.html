@@ -1,0 +1,9 @@
+<img style="width: 300px; height: 300px" [src]="item?.imageurl" />
+
+<h4>{{ item?.name }}</h4>
+
+<div>{{ item?.description }}</div>
+
+<!-- <pre>{{ item | json }}</pre> -->
+
+<button (click)="cart(item)">Add to Cart</button>

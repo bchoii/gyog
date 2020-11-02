@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="google-signin-client_id" content="" />
+  </head>
+
+  <body>
+    <div class="background"></div>
+
+    <img style="width: 100px" src="/logo.png" />
+
+    <h3>Grow your own Greens - Login</h3>
+
+    <div style="display: grid; gap: 20px; justify-items: center">
+      <!-- <form
+        style="display: grid; grid-template-columns: auto 1fr auto"
+        action="/auth/mobile"
+        method="POST"
+      >
+        <select>
+          <option>+65</option>
+        </select>
+        <input name="mobile" placeholder="Mobile" inputmode="numeric" />
+        <button>Next</button>
+      </form> -->
+
+      <div
+        class="g-signin2"
+        data-onsuccess="onSignIn"
+        data-prompt="select_account"
+        style="width: 250px"
+      ></div>
+
+      <!--
+      <fb:login-button
+        scope="email"
+        onlogin="checkLoginState();"
+        data-size="large"
+        data-button-type="continue_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        data-width=""
+      >
+      </fb:login-button>
+      -->
+    </div>
+
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+      async function onSignIn(googleUser) {
+        signOut();
+        const idToken = googleUser.getAuthResponse().id_token;
+        const response = await fetch('/auth/glogin/', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ idToken }),
+        });
+        location.href = (await response.json()).url;
+      }
+      function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+          console.log('response', response);
+          if (response.status === 'connected') {
+            console.log('FB.login', response);
+            fetch('/auth/fblogin/', {
+              method: 'post',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(response),
+            })
+              .then((r) => r.json())
+              .then((r) => (location.href = r.url));
+          }
+        });
+      }
+
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: '383647322817098', // gyog
+          // appId: '1191073791260522', // tungluk
+          // appId: '267541081343014', // thirty
+          // appId: '963727304104229', // bethesda
+          cookie: true,
+          xfbml: true,
+          version: 'v8.0',
+        });
+
+        FB.getLoginStatus(function (response) {
+          console.log('FB.getLoginStatus', response);
+          if (response.status === 'connected') {
+            FB.api('/me/permissions', 'delete', {}, function (response) {
+              console.log('delete', response);
+            });
+          }
+        });
+      };
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
+  </body>
+</html>

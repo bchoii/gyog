@@ -1,0 +1,49 @@
+<h3>Edit Config</h3>
+
+<div>
+  <button (click)="save(item)">Save</button>
+  <button (click)="back()">Back</button>
+</div>
+
+<hr />
+
+<div class="form">
+  <div>
+    <div>id</div>
+    <div>{{ item.id }}</div>
+  </div>
+  <div>
+    <div>created</div>
+    <div>{{ item.created | datetime }}</div>
+  </div>
+  <div>
+    <div>updated</div>
+    <div>{{ item.updated | datetime }}</div>
+  </div>
+  <div>
+    <div>version</div>
+    <div>{{ item.version }}</div>
+  </div>
+  <div>
+    <div>active</div>
+    <div><input [(ngModel)]="item.active" type="checkbox" /></div>
+  </div>
+  <div>
+    <div>sort</div>
+    <input [(ngModel)]="item.sort" type="number" />
+  </div>
+  <div>
+    <div>code</div>
+    <input [(ngModel)]="item.code" />
+  </div>
+  <div>
+    <div>key</div>
+    <input [(ngModel)]="item.key" />
+  </div>
+  <div>
+    <div>value</div>
+    <textarea [(ngModel)]="item.value"></textarea>
+  </div>
+</div>
+
+<!-- <pre>{{ item | json }}</pre> -->

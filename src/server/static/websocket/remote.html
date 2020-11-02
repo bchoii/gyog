@@ -1,0 +1,20 @@
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://sinming3.qms.grab.com/socket.io/socket.io.js"></script>
+<script>
+  const socket = io('https://sinming3.qms.grab.com/wsnamespace1');
+  const logs = [];
+  const log = (e) => {
+    logs.push(e);
+    document.getElementById('output').textContent = JSON.stringify(
+      logs,
+      null,
+      2
+    );
+  };
+  socket.on('connect', log);
+  socket.on('disconnect', log);
+  socket.on('channel2', log);
+  const fire = () => socket.emit('channel1', Date.now().toString(36), log);
+</script>
+<button onclick="fire()">Fire Message</button>
+<pre id="output"></pre>

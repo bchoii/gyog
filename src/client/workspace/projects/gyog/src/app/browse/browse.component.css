@@ -1,0 +1,22 @@
+:host {
+  /* text-align: center; */
+  /* display: grid; */
+  /* justify-content: center; */
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.content {
+  display: flex;
+  flex-flow: row wrap;
+
+  max-width: 1000px;
+  margin: auto;
+}
+
+.content > * {
+  flex: 1 150px;
+}

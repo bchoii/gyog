@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+Add Produce
+
+<div id="app">
+  <div class="container">
+    <button v-on:click="addImage">Add Image</button>
+    <button>Add Image</button>
+  </div>
+
+  {{ message }}
+</div>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!',
+    },
+    methods: {
+      addImage: function () {
+        this.message = this.message.split('').reverse().join('');
+      },
+    },
+  });
+</script>
+
+<div class="form">
+  <div>
+    <div>Type</div>
+    <input />
+  </div>
+  <div>
+    <div>Price</div>
+    <input />
+  </div>
+  <div>
+    <div>Quantity</div>
+    <input />
+  </div>
+</div>

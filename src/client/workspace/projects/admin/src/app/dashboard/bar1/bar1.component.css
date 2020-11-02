@@ -1,0 +1,9 @@
+:host {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+h3 {
+  margin: 0;
+}

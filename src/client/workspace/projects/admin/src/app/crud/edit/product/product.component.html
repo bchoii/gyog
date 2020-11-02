@@ -1,0 +1,73 @@
+<h3>Edit Product</h3>
+
+<div>
+  <button (click)="save(item)">Save</button>
+  <button (click)="back()">Back</button>
+</div>
+
+<hr />
+
+<div class="form">
+  <div>
+    <div>id</div>
+    <div>{{ item.id }}</div>
+  </div>
+  <div>
+    <div>created</div>
+    <div>{{ item.created | datetime }}</div>
+  </div>
+  <div>
+    <div>updated</div>
+    <div>{{ item.updated | datetime }}</div>
+  </div>
+  <div>
+    <div>version</div>
+    <div>{{ item.version }}</div>
+  </div>
+  <div>
+    <div>active</div>
+    <div><input [(ngModel)]="item.active" type="checkbox" /></div>
+  </div>
+  <div>
+    <div>sort</div>
+    <input [(ngModel)]="item.sort" type="number" />
+  </div>
+  <div>
+    <div>code</div>
+    <input [(ngModel)]="item.code" />
+  </div>
+  <div>
+    <div>name</div>
+    <input [(ngModel)]="item.name" />
+  </div>
+  <div>
+    <div>description</div>
+    <textarea [(ngModel)]="item.description"></textarea>
+  </div>
+  <div>
+    <div>category</div>
+    <div>
+      <select [(ngModel)]="item.category">
+        <option [ngValue]="item.category">{{ item.category?.name }}</option>
+        <option [ngValue]="null"></option>
+        <option *ngFor="let c of categories" [ngValue]="c">{{ c.name }}</option>
+      </select>
+      <a
+        *ngIf="item.category"
+        [routerLink]="['../../category', item.category.id]"
+      >
+        {{ item.category.name }}
+      </a>
+    </div>
+  </div>
+  <div>
+    <div>imageurl</div>
+    <input [(ngModel)]="item.imageurl" />
+  </div>
+  <div>
+    <div>imageurl</div>
+    <lib-uploader [(url)]="item.imageurl"></lib-uploader>
+  </div>
+</div>
+
+<!-- <pre>{{ item | json }}</pre> -->

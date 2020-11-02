@@ -1,0 +1,284 @@
+
+
+###
+GET http://localhost:3001/agent
+###
+GET http://localhost:3001/agent/
+###
+GET http://localhost:3001/agent/123
+###
+GET http://localhost:3001/agent/123/
+###
+GET http://localhost:3001/agent/123/456
+
+
+
+###
+POST http://localhost:3001/stripe/webhook
+Content-Type: application/json
+
+{"name": "Parent A","children": [{ "name": "Child A" }]}
+
+
+###
+GET http://localhost:3001
+
+
+###
+POST http://localhost:3001/api/crud/parent
+Content-Type: application/json
+
+{"name": "Parent A","children": [{ "name": "Child A" }]}
+
+###
+POST http://localhost:3001/api/crud2/order
+Content-Type: application/json
+
+{
+	"code": "X111",
+	"orderitems": [
+		{
+			"name":"item 1",
+			"price":100,
+			"quantity":1
+		}
+	]
+}
+
+###
+GET http://localhost:3001/api/counter/name3
+
+
+###
+GET http://localhost:3001/api/crud2/order
+
+###
+GET http://localhost:3001/api/crud2/orderitem
+
+###
+DELETE http://localhost:3001/api/crud2/order/8bed05e5-7f9d-4674-8293-cbcb3dbca981
+
+###
+PATCH http://localhost:3001/api/crud2/user/b7312169-f7d0-454b-8653-fdd1fd06dd5f
+Content-Type: application/json
+
+{"email" : "123123123"}
+
+###
+POST http://localhost:3001/api/crud2/user
+Content-Type: application/json
+
+{"email" : "testemail2", "roles":["Admin", "User"]}
+
+###
+GET http://localhost:3001/api/crud2/user
+
+###
+GET http://localhost:3001/api/crud/order/2d96f1f0-9804-4d20-ae28-92c5dfbc280a
+
+###
+GET http://localhost:3001/api/crud2/orderitem
+
+
+###
+DELETE http://localhost:3001/api/crud2/order/8bed05e5-7f9d-4674-8293-cbcb3dbca981
+
+###
+PATCH http://localhost:3001/api/crud2/order/8bed05e5-7f9d-4674-8293-cbcb3dbca981
+Content-Type: application/json
+
+{
+	"code": "X113",
+	"orderitems": [
+		{
+			"name":"item",
+			"price":100,
+			"quantity":1
+		}
+	]
+}
+
+
+###
+GET http://localhost:3001/admin/chart
+
+###
+POST http://localhost:3001/api/debug
+
+missingcontenttype
+###
+POST http://localhost:3001/api/debug
+Content-Type: text/plain
+
+plaincontenttype
+
+###
+POST http://localhost:3001/api/debug/
+Content-Type: application/json
+
+{"content" : "json"}
+
+###
+POST http://localhost:3001/api/debug/
+Content-Type: application/json
+
+{
+	"id" : "fdea7648-dd8c-4ebe-ae23-3762449504cc",
+	"mrspeedystatus" : "test"
+}
+###
+POST https://cup.bz/api/busycup/speedyupdate
+Content-Type: text/plain
+Authorization: Bearer r*4mw@RN%mS
+
+{
+	"id" : "fdea7648-dd8c-4ebe-ae23-3762449504cc",
+	"mrspeedystatus" : "test"
+}
+
+###
+POST https://cup.bz/api/busycup/speedyupdate
+Content-Type: application/json
+Authorization: Bearer r*4mw@RN%mS
+
+{
+	"id" : "fdea7648-dd8c-4ebe-ae23-3762449504cc",
+	"mrspeedystatus" : "test"
+}
+
+###
+
+POST https://mrspeedy.mindat.io/api/orders/generate
+Content-Type: application/json
+Authorization: Bearer cvKuS4I4*%m@
+
+{
+	"platform" : "OBT",
+	"ref" : "AA123",
+	"notes" : "Fragile Items",
+	"fromAddress" : "176G, Jalan Dataran Cheras 9, Cheras Traders Square, Balakong, Cheras, Selangor",
+	"toAddress" : "94, Jalan SS15/4, SS15, 47500 Subang Jaya",
+	"fromPhoneNo" : "60192324875",
+	"toPhoneNo" : "60192324875"
+}
+
+###
+POST https://mrspeedy.mindat.io/api/orders/generate
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer cvKuS4I4*%m@
+
+platform=OBT
+&ref=AA123
+&notes=Fragile Items
+&fromAddress=176G, Jalan Dataran Cheras 9, Cheras Traders Square, Balakong, Cheras, Selangor
+&toAddress=94, Jalan SS15/4, SS15, 47500 Subang Jaya
+&fromPhoneNo=60192324875
+&toPhoneNo=60192324875
+
+###
+# @name createcrudcsat
+POST http://localhost:3001/api/crud/csat
+Content-Type: application/json
+
+{
+	"rating": "excellent",
+	"details": "others"
+}
+
+###
+# @name updatecrudcsat
+PATCH http://localhost:3001/api/crud/product/9b3ca7f3-aa44-4cb5-9b48-653f836284b2
+Content-Type: application/json
+
+{
+	"category": "daa11009-5e52-4492-a88c-aade2456e191"
+}
+
+
+
+###
+# @name getallcrudproduct
+GET http://localhost:3001/api/crud/product
+
+###
+# @name getallcrudcategory
+GET http://localhost:3001/api/crud/category
+
+
+###
+# @name createcrudproduct
+POST http://localhost:3001/api/crud/product
+Content-Type: application/json
+
+{
+	"name": "{{$guid}}",
+	"category": {
+		"name": "{{$guid}}"
+	}
+}
+
+###
+GET http://localhost:3001/auth/login
+###
+GET http://localhost:3001/api/next/XXX
+
+
+###
+# @name getallcrudcategory
+GET http://localhost:3001/api/crud/category
+
+
+###
+# @name getallcrudcsat
+GET http://localhost:3001/api/crud/csat
+
+
+###
+GET http://localhost:3001/api/version
+
+###
+GET http://localhost:3001/secret
+
+###
+GET http://localhost:3001/auth/logout
+
+###
+@csatid = {{getallcrudcsat.response.body.$.data[0].id}}
+
+###
+# @name getone
+GET http://localhost:3001/api/crud/csat/{{csatid}}
+
+###
+# @name deletecrudcsat
+DELETE http://localhost:3001/api/crud/csat/{{csatid}}
+
+
+###
+
+POST http://localhost:3001/api/debug
+Content-Type: application/json
+
+{
+	"test": "random"
+}
+
+
+
+###
+
+POST https://robotapitest.mrspeedy.my/api/business/1.1/calculate-order
+X-DV-Auth-Token: 42E2C19186FB0587CFFDE90F44A9F0FF2DBBF843
+Content-Type: application/json
+
+{
+	"matter": "",
+	"points": [
+		{
+			"address": "Cheras"
+		},
+		{
+			"address": ""
+		}
+	]
+}

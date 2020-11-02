@@ -1,0 +1,30 @@
+<h3>List Reminder</h3>
+
+<lib-paginator [currentpage]="currentpage" [pageCount]="pageCount" (currentpageChange)="gotopage($event)">
+</lib-paginator>
+
+<table class="striped numbered">
+  <tr>
+    <th></th>
+    <th>updated</th>
+    <th>name</th>
+    <th>contact</th>
+    <th>reminderdate</th>
+    <th>message</th>
+    <th>Action
+      <!-- <button (click)="create()">Create</button> -->
+    </th>
+  </tr>
+  <tr *ngFor="let item of list; trackBy: trackByFn">
+    <td></td>
+    <td>{{ item.updated | datetime }}</td>
+    <td>{{ item.name  }}</td>
+    <td>{{ item.contact  }}</td>
+    <td>{{ item.reminderdate  }}</td>
+    <td>{{ item.message  }}</td>
+    <td>
+      <a [routerLink]="['../..', 'edit', modelname, item.id]">Edit</a>
+      <button (click)="remove(item.id)">Remove</button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,163 @@
+<ng-container *ngIf="self$ | async as self; else elseTemplate">
+  <div>
+    <nav>
+      <span>
+        <a [routerLink]="['']">
+          <img src="https://image.flaticon.com/icons/svg/924/924514.svg" />
+        </a>
+      </span>
+      <span
+        routerLinkActive="active"
+        *ngIf="self.roles.includes('Administrator')"
+      >
+        <a tabindex="-1"> Administrator </a>
+        <div>
+          <span>
+            <a [routerLink]="['list', 'user']" routerLinkActive="active">
+              user
+            </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'config']" routerLinkActive="active">
+              config
+            </a>
+          </span>
+        </div>
+      </span>
+      <span routerLinkActive="active" *ngIf="self.roles.includes('Manager')">
+        <a tabindex="-1"> Manager </a>
+        <div>
+          <span>
+            <a href="/repository" target="_black"> repository </a>
+          </span>
+          <span>
+            <a [routerLink]="['report']" routerLinkActive="active"> report </a>
+          </span>
+          <span>
+            <a [routerLink]="['dashboard']" routerLinkActive="active">
+              dashboard
+            </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'parent']" routerLinkActive="active">
+              parent
+            </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'child']" routerLinkActive="active">
+              child
+            </a>
+          </span>
+        </div>
+      </span>
+      <span routerLinkActive="active" *ngIf="self.roles.includes('Gyog')">
+        <a tabindex="-1"> Gyog </a>
+        <div>
+          <span>
+            <a [routerLink]="['list', 'category']" routerLinkActive="active">
+              category
+            </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'product']" routerLinkActive="active">
+              product
+            </a>
+          </span>
+        </div>
+      </span>
+      <span
+        routerLinkActive="active"
+        *ngIf="self.roles.includes('Appointment')"
+      >
+        <a tabindex="-1"> Appointment </a>
+        <div>
+          <span>
+            <a href="/appointment" target="_blank"> Appointment Public Link </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'reminder']" routerLinkActive="active">
+              reminder
+            </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'appointment']" routerLinkActive="active">
+              appointment
+            </a>
+          </span>
+        </div>
+      </span>
+      <span routerLinkActive="active" *ngIf="self.roles.includes('Csat')">
+        <a tabindex="-1"> Csat </a>
+        <div>
+          <span>
+            <a href="/csat" target="_blank"> Csat Public Link </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'csat']" routerLinkActive="active">
+              csat
+            </a>
+          </span>
+        </div>
+      </span>
+      <span routerLinkActive="active" *ngIf="self.roles.includes('Queue')">
+        <a tabindex="-1"> Queue </a>
+        <div>
+          <span>
+            <a href="/agent" target="_blank"> Agent </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'queue']" routerLinkActive="active">
+              queue
+            </a>
+          </span>
+        </div>
+      </span>
+      <span routerLinkActive="active" *ngIf="self.roles.includes('Bethesda')">
+        <a tabindex="-1"> Bethesda </a>
+        <div>
+          <span>
+            <a [routerLink]="['list', 'patient']" routerLinkActive="active">
+              patient
+            </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'treatment']" routerLinkActive="active">
+              treatment
+            </a>
+          </span>
+          <span>
+            <a [routerLink]="['list', 'medication']" routerLinkActive="active">
+              medication
+            </a>
+          </span>
+          <span>
+            <a
+              [routerLink]="['list', 'prescription']"
+              routerLinkActive="active"
+            >
+              prescription
+            </a>
+          </span>
+        </div>
+      </span>
+      <span class="right"> <a href="/auth/logout">Logout </a> </span>
+    </nav>
+    <div>
+      Welcome, <b>{{ self.email }}</b> .
+    </div>
+  </div>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="footer">{{ version$ | async }}</div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="container">
+    <a href="/">
+      Your session has expired. <br />
+      Start here.
+    </a>
+  </div>
+</ng-template>

@@ -1,0 +1,89 @@
+<h3>Edit Patient</h3>
+
+<div>
+  <button (click)="save(item)">Save</button>
+  <button (click)="back()">Back</button>
+</div>
+
+<hr />
+
+<div class="form">
+  <div>
+    <div>id</div>
+    <div>{{ item.id }}</div>
+  </div>
+  <div>
+    <div>created</div>
+    <div>{{ item.created | datetime }}</div>
+  </div>
+  <div>
+    <div>updated</div>
+    <div>{{ item.updated | datetime }}</div>
+  </div>
+  <div>
+    <div>version</div>
+    <div>{{ item.version }}</div>
+  </div>
+  <!-- <div>
+    <div>active</div>
+    <div><input [(ngModel)]="item.active" type="checkbox" /></div>
+  </div> -->
+  <!-- <div>
+    <div>sort</div>
+    <input [(ngModel)]="item.sort" type="number" />
+  </div> -->
+  <!-- <div>
+    <div>code</div>
+    <input [(ngModel)]="item.code" />
+  </div> -->
+  <!-- <div>
+    <div>ref</div>
+    <input [(ngModel)]="item.ref" />
+  </div> -->
+  <div>
+    <div>name</div>
+    <input [(ngModel)]="item.name" />
+  </div>
+  <div>
+    <div>contact</div>
+    <input [(ngModel)]="item.contact" />
+  </div>
+  <div>
+    <div>email</div>
+    <input [(ngModel)]="item.email" />
+  </div>
+  <div>
+    <div>lastvisit</div>
+    <input [(ngModel)]="item.lastvisit" type="date" />
+  </div>
+  <!-- <div>
+    <div>nextvisit</div>
+    <input [(ngModel)]="item.nextvisit" type="date" />
+  </div> -->
+  <!-- <div>
+    <div>address</div>
+    <textarea [(ngModel)]="item.address"></textarea>
+  </div> -->
+  <div>
+    <div>treatment</div>
+    <!-- <input [(ngModel)]="item.treatment" /> -->
+    <select [(ngModel)]="item.treatment">
+      <option [ngValue]="item.treatment">
+        {{ item.treatment?.name }} - {{ item.treatment?.name2 }}
+      </option>
+      <option [ngValue]="null"></option>
+      <option *ngFor="let t of treatments" [ngValue]="t">
+        {{ t.name }} - {{ t.name2 }}
+      </option>
+    </select>
+    <a
+      *ngIf="item.treatment"
+      [routerLink]="['../../treatment', item.treatment.id]"
+    >
+      {{ item.treatment.name }}
+    </a>
+  </div>
+</div>
+
+<!-- <pre>{{ item | json }}</pre> -->
+<!-- <pre>{{ treatments | json }}</pre> -->

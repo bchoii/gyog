@@ -1,0 +1,14 @@
+<input [(ngModel)]="url" (change)="urlChange.emit(url)" />
+<a [href]="url">
+  <img [src]="url" style="height: 100px" />
+</a>
+<button (click)="activate()">{{ status }}</button>
+
+<input
+  #fileinput
+  type="file"
+  accept="image/*"
+  capture
+  (change)="upload($event)"
+  style="display: none"
+/>

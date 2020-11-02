@@ -1,0 +1,12 @@
+<ng-container *ngFor="let chart of charts$ | async">
+  <ng-container [ngSwitch]="chart.type">
+    <app-bar1 *ngSwitchCase="'bar1'" [chart]="chart"> </app-bar1>
+    <app-stack1 *ngSwitchCase="'stack1'" [chart]="chart"> </app-stack1>
+    <app-radial1 *ngSwitchCase="'radial1'" [chart]="chart"> </app-radial1>
+    <app-pie1 *ngSwitchCase="'pie1'" [chart]="chart"> </app-pie1>
+    <app-line1 *ngSwitchCase="'line1'" [chart]="chart"> </app-line1>
+    <app-group1 *ngSwitchCase="'group1'" [chart]="chart"> </app-group1>
+    <app-heat1 *ngSwitchCase="'heat1'" [chart]="chart"> </app-heat1>
+    <div *ngSwitchDefault>Unknown Type</div>
+  </ng-container>
+</ng-container>

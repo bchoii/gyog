@@ -1,0 +1,33 @@
+:host {
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background: #eee;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-auto-flow: row dense;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+:host > * {
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 5px #ccc;
+
+  /* flex-grow: 1; */
+}
+
+@media (min-width: 800px) {
+  :host app-line1 {
+    grid-column: auto / span 2;
+  }
+
+  :host app-group1 {
+    grid-column: auto / span 2;
+  }
+
+  :host app-heat1 {
+    grid-column: auto / span 2;
+  }
+}

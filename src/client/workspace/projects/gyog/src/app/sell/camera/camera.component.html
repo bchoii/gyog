@@ -1,0 +1,13 @@
+<button (click)="activate()">
+  <div>{{ status }}</div>
+  <img *ngIf="url" [src]="url" style="height: 200px" />
+</button>
+
+<input
+  #fileinput
+  type="file"
+  accept="image/*"
+  capture
+  (change)="upload($event)"
+  style="display: none"
+/>

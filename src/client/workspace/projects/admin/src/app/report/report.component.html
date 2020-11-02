@@ -1,0 +1,23 @@
+<h3>Report</h3>
+
+<div class="form">
+  <div>
+    <div>Report Type</div>
+    <select [(ngModel)]="form.type">
+      <option>Appointment Report</option>
+      <option>Csat Report</option>
+    </select>
+  </div>
+  <div>
+    <div>Start Date</div>
+    <input type="date" [(ngModel)]="form.startdate" />
+  </div>
+  <div>
+    <div>End Date</div>
+    <input type="date" [(ngModel)]="form.enddate" />
+  </div>
+  <div>
+    <div>Action</div>
+    <button (click)="report(form)">Download Report</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<button *ngIf="currentpage > 0" (click)="_gotopage(0)">‹‹</button>
+<button *ngIf="currentpage > 0" (click)="_gotopage(currentpage - 1)">‹</button>
+Page {{ currentpage + 1 }} of {{ pageCount }}
+<button
+  *ngIf="currentpage < pageCount - 1"
+  (click)="_gotopage(currentpage + 1)"
+>
+  ›
+</button>
+<button *ngIf="currentpage < pageCount - 1" (click)="_gotopage(pageCount - 1)">
+  ››
+</button>

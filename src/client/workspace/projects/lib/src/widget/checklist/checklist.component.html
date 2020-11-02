@@ -1,0 +1,11 @@
+<ng-container *ngFor="let option of options">
+  <label style="display: inline-block">
+    <input
+      type="checkbox"
+      [checked]="value?.includes(option)"
+      [value]="option"
+      (change)="onChange($event)"
+    />
+    {{ option }}
+  </label>
+</ng-container>

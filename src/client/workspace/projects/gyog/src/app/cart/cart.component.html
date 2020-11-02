@@ -1,0 +1,18 @@
+<h3>Cart</h3>
+
+<ol>
+  <li *ngFor="let item of service.cart">
+    <div style="display: grid; grid-template-columns: 1fr auto">
+      <div>{{ item.name }}</div>
+      <img style="width: 100px" [src]="item.imageurl" />
+    </div>
+  </li>
+</ol>
+
+<div>{{ service.cart?.length }} items.</div>
+
+<div>Total : $0.50</div>
+
+<a [routerLink]="['/browse']" class="button">Order More Items</a>
+<button class="button" (click)="clear()">Clear Cart</button>
+<a class="button" [href]="'/stripe?email=' + email">Check Out</a>

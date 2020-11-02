@@ -1,0 +1,68 @@
+<h3>Edit Prescription</h3>
+
+<div>
+  <button (click)="save(item)">Save</button>
+  <button (click)="back()">Back</button>
+</div>
+
+<hr />
+
+<div class="form">
+  <div>
+    <div>id</div>
+    <div>{{ item.id }}</div>
+  </div>
+  <div>
+    <div>created</div>
+    <div>{{ item.created | datetime }}</div>
+  </div>
+  <div>
+    <div>updated</div>
+    <div>{{ item.updated | datetime }}</div>
+  </div>
+  <div>
+    <div>version</div>
+    <div>{{ item.version }}</div>
+  </div>
+  <div>
+    <div>active</div>
+    <div><input [(ngModel)]="item.active" type="checkbox" /></div>
+  </div>
+  <div>
+    <div>sort</div>
+    <input [(ngModel)]="item.sort" type="number" />
+  </div>
+  <div>
+    <div>code</div>
+    <input [(ngModel)]="item.code" />
+  </div>
+  <div>
+    <div>patient</div>
+    <div>
+      <select [(ngModel)]="item.patient">
+        <option [ngValue]="item.patient">{{ item.patient?.name }}</option>
+        <option [ngValue]="null"></option>
+        <option *ngFor="let p of patients" [ngValue]="p">
+          {{ p.name }}
+        </option>
+      </select>
+      <a *ngIf="item.patient" [routerLink]="['../../patient', item.patient.id]">
+        {{ item.patient.name }}
+      </a>
+    </div>
+  </div>
+  <div>
+    <div>details</div>
+    <textarea [(ngModel)]="item.details"></textarea>
+  </div>
+  <div>
+    <div>price</div>
+    <input [(ngModel)]="item.price" type="number" />
+  </div>
+  <div>
+    <div>paid</div>
+    <input [(ngModel)]="item.paid" type="checkbox" />
+  </div>
+</div>
+
+<!-- <pre>{{ item | json }}</pre> -->
